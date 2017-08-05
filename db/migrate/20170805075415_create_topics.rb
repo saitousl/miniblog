@@ -2,7 +2,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
   def change
     create_table :topics do |t|
       t.string :body
-      t.Integer :like
+      t.integer :like
 
       t.timestamps
     end
