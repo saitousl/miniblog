@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
   # GET /topics.json
   def index
     @topics = Topic.all
+    @topic = Topic.new
   end
 
   # GET /topics/1
@@ -20,6 +21,19 @@ class TopicsController < ApplicationController
   # GET /topics/1/edit
   def edit
   end
+  
+  def like
+    @topic = Topic.all.find(params[:id])
+    @topic.like += 1
+    
+    respond_to do |format|
+      if @topic.save
+        format.html { redirect_to topics_url}
+        format.json { head :no_content }
+      end
+    end
+  end
+
 
   # POST /topics
   # POST /topics.json

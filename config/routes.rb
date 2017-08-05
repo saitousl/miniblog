@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :topics
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :topics
+  get 'topics/:id/like' => 'topics#like'
   root 'topics#index'
 end

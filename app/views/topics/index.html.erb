@@ -4,18 +4,17 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Body</th>
-      <th>Like</th>
-      <th colspan="3"></th>
-    </tr>
+    <%= form_for @topic, :url => {:controller => :topics, :action => :create} do |f| %>
+      <%= f.text_field :body, :placeholder => '投稿しよう', :size => '80%', :body => 'topic[body]', :id => 'topic_body' %>
+      <%= f.submit "投稿する", :name => 'commit', :disable_with => '投稿する' %>
+    <% end %>
   </thead>
 
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
         <td><%= topic.body %></td>
-        <td><%= topic.like %></td>
+        <td><%= link_to 'いいね', action: 'like', controller: 'topics', id: topic.id  %><%= topic.like %></td>
         <td><%= link_to 'Show', topic %></td>
         <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
         <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +25,3 @@
 
 <br>
 
-<%= link_to 'New Topic', new_topic_path %>
