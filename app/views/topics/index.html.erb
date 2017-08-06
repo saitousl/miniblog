@@ -17,6 +17,7 @@
         <td><%= link_to topic.body, topic %></td>
         <td><%= link_to 'いいね', action: 'like', controller: 'topics', id: topic.id  %>:<%= topic.like %></td>
         <td>コメント数:<%= topic.replies.length %></td>
+        <td>更新日時:<%= topic.updated_at %></td>
       </tr>
     <% end %>
   </tbody>
