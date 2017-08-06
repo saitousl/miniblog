@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+簡単なミニブログ
 
-Things you may want to cover:
+仕様
+・本文を投稿することができます
+・本文にイイねをする事ができます
+・イイねされた数を見ることができます
+・本文にコメントをすることができます
+参考サンプル: https://ateam-2017-intern.herokuapp.com/ 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+確認ページ
+https://frozen-mountain-40405.herokuapp.com
