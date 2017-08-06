@@ -1,14 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Mini Blog</h1>
+
 <p>
-  <strong>Body:</strong>
   <%= @topic.body %>
 </p>
 
-<p>
-  <strong>Like:</strong>
-  <%= @topic.like %>
-</p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<table>
+  <thead>
+    <%= form_for @reply, :url => {:controller => :replies, :action => :create} do |f| %>
+      <%= f.text_field :comment, :placeholder => 'コメントしよう', :size => '80%', :name => 'reply[comment]', :id => 'reply_comment' %>
+      <%= f.hidden_field :topic_id, :value => @topic.id %>
+      <%= f.submit "コメントする", :name => 'commit', :disable_with => 'コメントする' %>
+    <% end %>
+  </thead>
+
+  <tbody>
+    <% @replies.each do |reply| %>
+      <tr>
+        <td><%= reply.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Back', topics_path %>

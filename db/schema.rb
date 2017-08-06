@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805075415) do
+ActiveRecord::Schema.define(version: 20170805150300) do
+
+  create_table "replies", force: :cascade do |t|
+    t.integer  "topic_id",   default: 0,  null: false
+    t.string   "comment",    default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string   "body",       default: "", null: false

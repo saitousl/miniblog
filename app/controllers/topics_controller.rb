@@ -6,11 +6,14 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all
     @topic = Topic.new
+    @reply = Reply.all
   end
 
   # GET /topics/1
   # GET /topics/1.json
   def show
+    @reply = Reply.new
+    @replies = Reply.where(topic_id:params[:id])
   end
 
   # GET /topics/new
@@ -42,7 +45,7 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
+        format.html { redirect_to :action => 'index', notice: 'Topic was successfully created.' }
         format.json { render :show, status: :created, location: @topic }
       else
         format.html { render :new }
