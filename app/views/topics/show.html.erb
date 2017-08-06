@@ -20,6 +20,7 @@
     <% @replies.each do |reply| %>
       <tr>
         <td><%= reply.comment %></td>
+        <td>更新日時:<%= reply.updated_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
       </tr>
     <% end %>
   </tbody>
